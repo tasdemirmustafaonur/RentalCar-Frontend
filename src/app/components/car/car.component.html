@@ -10,20 +10,20 @@
   <div
     *ngFor="let car of cars"
     class="col-lg-4 col-md-6 shadow-lg p-1 mb-3"
-    style="width: 18rem"
+    style="width: 15rem"
   >
-    <div class="card" style="width: 18rem">
+    <div class="card" style="width: 15rem">
       <img
         [src]="getImagePath(car.carImages[0].imagePath)"
-        width="108"
-        height="192"
+        routerLink="/cars/car-details/{{ car.id }}"
+        height="144"
         class="card-img-top"
         alt="..."
       />
       <div class="card-body">
         <h5 class="card-title text-center">
           <strong
-            >{{ car.modelYear }} Model {{ car.brandName }}
+            >{{ car.modelYear }} Model<br />{{ car.brandName }}
             {{ car.modelName }}</strong
           >
         </h5>

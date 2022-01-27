@@ -22,7 +22,7 @@
         >
           <img
             [src]="getImagePath(carImage.imagePath)"
-            height="288"
+            height="384"
             class="d-block w-100"
             alt="..."
           />
@@ -90,6 +90,7 @@
     <div>
       <img
         [src]="getImagePath(subCar.carImages[0].imagePath)"
+        routerLink="/cars/car-details/{{ subCar.id }}"
         height="192"
         width="108"
         class="card-img-top"
