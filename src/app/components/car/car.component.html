@@ -1,13 +1,13 @@
 <div
-  *ngIf="dataLoaded == false"
+  *ngIf="carsDataLoaded == false"
   class="spinner-border text-success"
   role="status"
 >
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<form class="row g-3 bg-dark bg-gradient">
-  <div class="col-2">
+<form *ngIf="carsDataLoaded == true" class="row g-3 bg-dark bg-gradient">
+  <div *ngIf="brandsDataLoaded == true" class="col-2">
     <select
       [ngModelOptions]="{ standalone: true }"
       [(ngModel)]="filterBrandId"
@@ -19,7 +19,7 @@
       </option>
     </select>
   </div>
-  <div class="col-2">
+  <div *ngIf="colorsDataLoaded == true" class="col-2">
     <select
       [ngModelOptions]="{ standalone: true }"
       [(ngModel)]="filterColorId"
@@ -63,7 +63,7 @@
   </div>
 </form>
 
-<div *ngIf="dataLoaded == true" class="row">
+<div *ngIf="carsDataLoaded == true" class="row">
   <div
     *ngFor="let car of cars | filterCarModelPipe: filterCarModelName"
     class="col-lg-4 col-md-6 shadow-lg p-1 mb-3"
@@ -83,13 +83,13 @@
         </h5>
         <br />
         <ul>
-          <li class="list-group-item text-center">
+          <li class="list-group-item text-center bg-light">
             <strong>Marka: </strong>{{ car.brandName }}
           </li>
-          <li class="list-group-item text-center">
+          <li class="list-group-item text-center bg-light">
             <strong>Renk: </strong>{{ car.colorName }}
           </li>
-          <li class="list-group-item text-center">
+          <li class="list-group-item text-center bg-light">
             <strong>Model: </strong>{{ car.modelYear }}
           </li>
         </ul>

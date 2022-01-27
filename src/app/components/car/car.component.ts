@@ -22,7 +22,9 @@ export class CarComponent implements OnInit {
   filterColorId: number = 1;
   filterCarModelName: string = '';
 
-  dataLoaded: boolean = false;
+  carsDataLoaded: boolean = false;
+  brandsDataLoaded: boolean = false;
+  colorsDataLoaded: boolean = false;
 
   constructor(
     private carService: CarService,
@@ -47,27 +49,28 @@ export class CarComponent implements OnInit {
   getCars() {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
-      this.dataLoaded = true;
+      this.carsDataLoaded = true;
     });
   }
 
   getCarsByBrand(brandId: number) {
     this.carService.getCarsByBrand(brandId).subscribe((response) => {
       this.cars = response.data;
-      this.dataLoaded = true;
+      this.carsDataLoaded = true;
     });
   }
 
   getCarsByColor(colorId: number) {
     this.carService.getCarsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
-      this.dataLoaded = true;
+      this.carsDataLoaded = true;
     });
   }
 
   getCarsByFilter(brandId: number, colorId: number) {
     this.carService.getCarsByFilter(brandId, colorId).subscribe((response) => {
       this.cars = response.data;
+      this.carsDataLoaded = true;
     });
   }
 
@@ -78,12 +81,14 @@ export class CarComponent implements OnInit {
   getBrands() {
     this.brandService.getBrands().subscribe((response) => {
       this.brands = response.data;
+      this.brandsDataLoaded = true;
     });
   }
 
   getColors() {
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
+      this.colorsDataLoaded = true;
     });
   }
 }

@@ -10,7 +10,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
   colors: Color[] = [];
   filterColorText: string = '';
-  dataLoaded: boolean = false;
+  colorsDataLoaded: boolean = false;
   currentColor: Color | null;
 
   constructor(private colorService: ColorService) {}
@@ -22,7 +22,7 @@ export class ColorComponent implements OnInit {
   getColors() {
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
-      this.dataLoaded = true;
+      this.colorsDataLoaded = true;
     });
   }
 
