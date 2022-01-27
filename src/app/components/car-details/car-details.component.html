@@ -59,6 +59,7 @@
         <strong>Araç Detayları</strong>
       </li>
       <li class="list-group-item"><b>Marka: </b>{{ currentCar.brandName }}</li>
+      <li class="list-group-item"><b>Model: </b>{{ currentCar.modelName }}</li>
       <li class="list-group-item"><b>Renk: </b>{{ currentCar.colorName }}</li>
       <li class="list-group-item">
         <b>Model yılı: </b>{{ currentCar.modelYear }}
@@ -99,7 +100,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title text-center">
-        {{ subCar.modelYear }} Model {{ subCar.brandName }}
+        {{ subCar.brandName }} {{ subCar.modelName }}
       </h5>
       <h5 class="card-title text-center">{{ subCar.dailyPrice }} ₺</h5>
       <div class="text-center">
