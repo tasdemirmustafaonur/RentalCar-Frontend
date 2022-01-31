@@ -44,6 +44,12 @@ export class CarDetailsComponent implements OnInit {
       if (params['carid']) {
         this.getCurrentCarDetails(params['carid']).then((res) => {
           this.getCarsOfCurrentBrand();
+          this.rentDate = undefined!;
+          this.returnDate = undefined!;
+          this.isCarCanBeRentedNow = false;
+          this.rentalPeriod = undefined!;
+          this.validateRentalDates = false;
+          this.rentalConfirmation = undefined!;
         });
       }
     });
@@ -106,9 +112,14 @@ export class CarDetailsComponent implements OnInit {
     if (this.validateRentalDates === true) {
       this.rentalService
         .checkIfCanCarBeRentedBetweenSelectedDates(carId, rentDate, returnDate)
-        .subscribe((response) => {
-          this.rentalConfirmation = response;
-        });
+        .subscribe(
+          (response) => {
+            this.rentalConfirmation = response;
+          },
+          (error) => {
+            this.rentalConfirmation = error.error;
+          }
+        );
     }
   }
 
