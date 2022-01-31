@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Rental } from '../models/entities/rental';
+import { RentPaymentRequest } from '../models/rent-payment-request';
 import { ListResponseModel } from '../models/responseModels/listResponseModel';
 import { SingleResponseModel } from '../models/responseModels/singleResponseModel';
 
@@ -26,19 +27,29 @@ export class RentalService {
     return this.httpClient.get<SingleResponseModel<boolean>>(newPath);
   }
 
-  checkIfAnyReservationsBetweenSelectedDates(
+  checkIfCanCarBeRentedBetweenSelectedDates(
     carId: number,
     rentDate: string,
     returnDate: string
   ): Observable<SingleResponseModel<boolean>> {
     let newPath =
       this.apiUrl +
-      'rentals/checkifanyreservationsbetweenselecteddates?carid=' +
+      'rentals/checkifcancarberentedbetweenselecteddates?carid=' +
       carId +
       '&rentdate=' +
       rentDate +
       '&returndate=' +
       returnDate;
     return this.httpClient.get<SingleResponseModel<boolean>>(newPath);
+  }
+
+  rent(
+    rentRequest: RentPaymentRequest
+  ): Observable<SingleResponseModel<number>> {
+    let newPath = this.apiUrl + 'rentals/rent';
+    return this.httpClient.post<SingleResponseModel<number>>(
+      newPath,
+      rentRequest
+    );
   }
 }

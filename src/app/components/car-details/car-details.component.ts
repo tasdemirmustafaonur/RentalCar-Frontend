@@ -105,7 +105,7 @@ export class CarDetailsComponent implements OnInit {
     this.validateReservationDates(rentDate, returnDate);
     if (this.validateRentalDates === true) {
       this.rentalService
-        .checkIfAnyReservationsBetweenSelectedDates(carId, rentDate, returnDate)
+        .checkIfCanCarBeRentedBetweenSelectedDates(carId, rentDate, returnDate)
         .subscribe((response) => {
           this.rentalConfirmation = response;
         });
