@@ -59,6 +59,6 @@ export class CartSummaryComponent implements OnInit {
   }
 
   getImagePath(imagePath: string) {
-    return this.carImageService.apiUrl + imagePath;
+    return this.carImageService.getImagePath + imagePath;
   }
 }

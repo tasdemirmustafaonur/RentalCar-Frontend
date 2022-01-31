@@ -97,7 +97,7 @@ export class CarDetailsComponent implements OnInit {
   }
 
   getImagePath(imagePath: string) {
-    return this.carImageService.apiUrl + imagePath;
+    return this.carImageService.getImagePath + imagePath;
   }
 
   checkIfAnyReservationsBetweenSelectedDates(
