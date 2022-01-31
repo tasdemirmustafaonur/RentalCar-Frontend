@@ -149,9 +149,16 @@
         <div *ngIf="rentalConfirmation && validateRentalDates === true">
           <button
             *ngIf="rentalConfirmation.data == true"
+            (click)="
+              addToCart(
+                currentCar,
+                convertStringToDate(rentDate),
+                convertStringToDate(returnDate)
+              )
+            "
             type="button"
             class="btn btn-success"
-            data-bs-primary="modal"
+            data-bs-dismiss="modal"
           >
             Sepete Ekle
           </button>
