@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +20,7 @@ import { CarDetailsComponent } from './components/car-details/car-details.compon
 import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
 import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 import { FilterCarModelPipePipe } from './pipes/filter-car-model-pipe.pipe';
-import { ToastrModule } from 'ngx-toastr';
+
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartComponent } from './components/cart/cart.component';
 
@@ -42,6 +45,9 @@ import { CartComponent } from './components/cart/cart.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
