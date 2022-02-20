@@ -28,6 +28,11 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
 import { BrandManagerComponent } from './components/brand-manager/brand-manager.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarDeleteComponent } from './components/car-delete/car-delete.component';
+import { CarManagerComponent } from './components/car-manager/car-manager.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
     BrandDeleteComponent,
     BrandManagerComponent,
     BrandUpdateComponent,
+    CarAddComponent,
+    CarDeleteComponent,
+    CarManagerComponent,
+    CarUpdateComponent,
+    ColorAddComponent,
   ],
   imports: [
     BrowserModule,
