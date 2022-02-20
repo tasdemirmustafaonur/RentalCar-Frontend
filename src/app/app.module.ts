@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,10 @@ import { FilterCarModelPipePipe } from './pipes/filter-car-model-pipe.pipe';
 
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartComponent } from './components/cart/cart.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
+import { BrandManagerComponent } from './components/brand-manager/brand-manager.component';
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import { CartComponent } from './components/cart/cart.component';
     FilterCarModelPipePipe,
     CartSummaryComponent,
     CartComponent,
+    BrandAddComponent,
+    BrandDeleteComponent,
+    BrandManagerComponent,
+    BrandUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +58,7 @@ import { CartComponent } from './components/cart/cart.component';
     NgxMaskModule.forRoot(),
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
   providers: [],
