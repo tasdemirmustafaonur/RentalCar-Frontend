@@ -10,7 +10,7 @@ import { SingleResponseModel } from '../models/responseModels/singleResponseMode
   providedIn: 'root',
 })
 export class BrandService {
-  private apiUrl = 'https://localhost:44313/api';
+  private apiUrl = 'https://localhost:44313/api/';
 
   constructor(private httpClient: HttpClient) {}
 
