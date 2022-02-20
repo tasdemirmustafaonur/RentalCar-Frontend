@@ -20,7 +20,35 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cars">Araba Listesi</a>
+          <a class="nav-link active" routerLink="/cars">Araba Listesi</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            id="managerDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            YÖNETİM
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="/brand/manager"
+                >Markaları Yönet</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/color/manager"
+                >Renkleri Yönet</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/car/manager"
+                >Araçları Yönet</a
+              >
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
