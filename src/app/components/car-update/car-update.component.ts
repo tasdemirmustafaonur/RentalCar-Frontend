@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/entities/brand';
 import { Car } from 'src/app/models/entities/car';
-import { CarImage } from 'src/app/models/entities/car-image';
+import { CarImage } from 'src/app/models/entities/carImage';
 import { Color } from 'src/app/models/entities/color';
 import { UploadFile } from 'src/app/models/uploadFile';
 import { BrandService } from 'src/app/services/brand.service';
