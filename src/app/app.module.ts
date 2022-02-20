@@ -33,6 +33,9 @@ import { CarDeleteComponent } from './components/car-delete/car-delete.component
 import { CarManagerComponent } from './components/car-manager/car-manager.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorDeleteComponent } from './components/color-delete/color-delete.component';
+import { ColorManagerComponent } from './components/color-manager/color-manager.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
     CarManagerComponent,
     CarUpdateComponent,
     ColorAddComponent,
+    ColorDeleteComponent,
+    ColorManagerComponent,
+    ColorUpdateComponent,
   ],
   imports: [
     BrowserModule,
