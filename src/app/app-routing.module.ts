@@ -6,11 +6,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { BrandManagerComponent } from './components/brand-manager/brand-manager.component';
 import { CarManagerComponent } from './components/car-manager/car-manager.component';
 import { ColorManagerComponent } from './components/color-manager/color-manager.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/account/account-login/account-login.component';
 import { RoleGuard } from './guards/role.guard';
 import { LoginGuard } from './guards/login.guard';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/account/account-register/account-register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AccountHomeComponent } from './components/account/account-home/account-home.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarComponent },
@@ -37,9 +38,19 @@ const routes: Routes = [
     canActivate: [LoginGuard, RoleGuard],
     data: { expectedRole: 'admin' },
   },
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [LoginGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
+  {
+    path: 'account',
+    component: AccountHomeComponent,
+    children: [
+      { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [LoginGuard],
+      },
+    ],
+  },
 ];
 
 @NgModule({

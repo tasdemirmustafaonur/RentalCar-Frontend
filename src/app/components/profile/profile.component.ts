@@ -193,6 +193,6 @@ export class ProfileComponent implements OnInit {
 
   logOutAndGoLoginPage() {
     this.authService.logOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['account/login']);
   }
 }
