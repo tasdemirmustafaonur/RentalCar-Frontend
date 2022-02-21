@@ -67,7 +67,7 @@ export class BrandUpdateComponent implements OnInit {
             //Back-end Validation ok but other errors
             else {
               this.toastrService.error(
-                errorResponse.error.Message,
+                errorResponse.error.message,
                 'Güncelleme başarısız'
               );
             }

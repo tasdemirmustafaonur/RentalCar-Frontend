@@ -70,7 +70,7 @@ export class BrandAddComponent implements OnInit {
           //Back-end Validation ok but other errors
           else {
             this.toastrService.error(
-              responseError.error.Message,
+              responseError.error.message,
               'Marka eklenemedi'
             );
           }

@@ -31,7 +31,7 @@ export class BrandDeleteComponent implements OnInit {
       },
       (errorResponse) => {
         this.toastrService.error(
-          errorResponse.error.Message,
+          errorResponse.error.message,
           'Silme işlemi başarısız'
         );
       }

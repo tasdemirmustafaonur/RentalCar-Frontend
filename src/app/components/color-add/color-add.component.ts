@@ -67,7 +67,7 @@ export class ColorAddComponent implements OnInit {
           //Back-end Validation ok but other errors
           else {
             this.toastrService.error(
-              responseError.error.Message,
+              responseError.error.message,
               'Renk eklenemedi'
             );
           }
