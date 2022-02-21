@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -36,6 +36,11 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorDeleteComponent } from './components/color-delete/color-delete.component';
 import { ColorManagerComponent } from './components/color-manager/color-manager.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,9 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
     ColorDeleteComponent,
     ColorManagerComponent,
     ColorUpdateComponent,
+    LoginComponent,
+    ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +85,11 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
     MatDialogModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
