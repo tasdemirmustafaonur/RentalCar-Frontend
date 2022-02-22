@@ -43,6 +43,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AccountHomeComponent } from './components/account/account-home/account-home.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     RegisterComponent,
     AccountHomeComponent,
     AdminHomeComponent,
+    FooterComponent,
+    HomeLayoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,39 +13,50 @@ import { RegisterComponent } from './components/account/account-register/account
 import { ProfileComponent } from './components/profile/profile.component';
 import { AccountHomeComponent } from './components/account/account-home/account-home.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: CarComponent },
-  { path: 'cars', component: CarComponent },
-  { path: 'cars/brand/:brandid', component: CarComponent },
-  { path: 'cars/color/:colorid', component: CarComponent },
-  { path: 'cars/car-details/:carid', component: CarDetailsComponent },
-  { path: 'cart', component: CartComponent, canActivate: [LoginGuard] },
   {
-    path: 'admin',
-    component: AdminHomeComponent,
+    path: '',
+    component: HomeLayoutComponent,
     children: [
+      { path: '', component: CarComponent },
+      { path: 'cars', component: CarComponent },
+      { path: 'cars/brand/:brandid', component: CarComponent },
+      { path: 'cars/color/:colorid', component: CarComponent },
+      { path: 'cars/car-details/:carid', component: CarDetailsComponent },
+      { path: 'cart', component: CartComponent, canActivate: [LoginGuard] },
       {
-        path: 'brand/manager',
-        component: BrandManagerComponent,
-        canActivate: [LoginGuard, RoleGuard],
-        data: { expectedRole: 'admin' },
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [LoginGuard],
       },
       {
-        path: 'color/manager',
-        component: ColorManagerComponent,
-        canActivate: [LoginGuard, RoleGuard],
-        data: { expectedRole: 'admin' },
-      },
-      {
-        path: 'car/manager',
-        component: CarManagerComponent,
-        canActivate: [LoginGuard, RoleGuard],
-        data: { expectedRole: 'admin' },
+        path: 'admin',
+        component: AdminHomeComponent,
+        children: [
+          {
+            path: 'brand/manager',
+            component: BrandManagerComponent,
+            canActivate: [LoginGuard, RoleGuard],
+            data: { expectedRole: 'admin' },
+          },
+          {
+            path: 'color/manager',
+            component: ColorManagerComponent,
+            canActivate: [LoginGuard, RoleGuard],
+            data: { expectedRole: 'admin' },
+          },
+          {
+            path: 'car/manager',
+            component: CarManagerComponent,
+            canActivate: [LoginGuard, RoleGuard],
+            data: { expectedRole: 'admin' },
+          },
+        ],
       },
     ],
   },
-  { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   {
     path: 'account',
     component: AccountHomeComponent,
